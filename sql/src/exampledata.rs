@@ -6,7 +6,7 @@ use serde_json;
 use std::collections::HashMap;
 use uuid::Uuid;
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(serde::Serialize, Deserialize, Debug)]
 struct ProductEvent {
     ip_address: String,
     anonymous_id: String,

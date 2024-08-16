@@ -4,8 +4,9 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+duckdb = { version = "1.0.0", features = ["bundled"] }
 proptest = "1.0.0"
-serde = "1.0"
+serde = { version = "1.0", features = ["serde_derive"] }
 serde_json = "1.0"
 uuid = {version = "1.10", features = ["v4"]}
 
