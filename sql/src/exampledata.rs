@@ -36,13 +36,13 @@ fn generate_product_event() -> ProductEvent {
     tags.insert(String::from("site_version"), String::from("921103db"));
 
     let anonymous_id = Uuid::new_v4();
-    let product_event = ProductEvent { 
+    let product_event = ProductEvent {
         ip_address: String::from("127.0.0.1"), 
         anonymous_id: anonymous_id.to_string(),
         timestamp: String::from("2024-07-29T09:56:23Z"),
         method: String::from("GET"),
         login_id: String::from("user_995a12f6-a8f1-4cfb-8c9e-d2e6103dc41f"),
-        product_id: 10, 
+        product_id: 10,
         location: Location{
             latitude: 180,
             longditude: 37,
