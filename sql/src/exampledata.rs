@@ -1,9 +1,9 @@
+use serde::{Deserialize, Serialize};
+use serde_json;
+use std::collections::HashMap;
 use std::fs::File;
 use std::io;
 use std::io::Write;
-use serde::{Serialize, Deserialize};
-use serde_json;
-use std::collections::HashMap;
 use uuid::Uuid;
 
 #[derive(serde::Serialize, Deserialize, Debug)]
@@ -20,13 +20,13 @@ struct ProductEvent {
     domain: String,
     url: String,
     referrer: String,
-    tags: HashMap<String,String>,
+    tags: HashMap<String, String>,
 }
 
 #[derive(Serialize, Deserialize, Debug)]
 struct Location {
     latitude: i32,
-    longditude: i32
+    longditude: i32,
 }
 
 fn generate_product_event() -> ProductEvent {
@@ -57,13 +57,12 @@ fn generate_product_event() -> ProductEvent {
     product_event
 }
 
-pub fn write_file(path : &str, item_count : u32) -> io::Result<()> {
+pub fn write_file(path: &str, item_count: u32) -> io::Result<()> {
     let mut output = File::create(path)?;
     for _ in 0..item_count {
         let product_event = generate_product_event();
         let serialized = serde_json::to_string(&product_event).unwrap();
-        writeln!(output,"{}", serialized)?;
+        writeln!(output, "{}", serialized)?;
     }
     Ok(())
 }
-

@@ -5,15 +5,11 @@ fn bench_run_loop(c: &mut Criterion) {
         b.iter(|| {
             let mut a = 0;
             std::hint::black_box(for i in 1..=1000 {
-               a = a + i; 
+                a = a + i;
             });
         });
     });
 }
 
-criterion_group!(
-    benches,
-    bench_run_loop,
-);
+criterion_group!(benches, bench_run_loop,);
 criterion_main!(benches);
-
